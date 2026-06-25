@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 
 export default function Button({ children, to, href, variant = 'primary', className = '', ...props }) {
   const base =
-    'inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-colors focus:outline-none'
+    'inline-flex items-center justify-center rounded-warm px-6 py-3 text-sm font-semibold transition-colors'
   const variants = {
-    primary: 'bg-amber text-espresso-dark hover:bg-amber-dark',
-    secondary: 'bg-espresso text-cream-paper hover:bg-espresso-dark',
-    outline: 'border border-espresso text-espresso hover:bg-espresso hover:text-cream-paper',
+    primary: 'bg-amber-warm text-espresso-dark hover:bg-amber-light shadow-warm-sm',
+    secondary: 'bg-espresso text-cream hover:bg-espresso-light',
+    outline: 'border border-espresso text-espresso hover:bg-espresso hover:text-cream',
   }
   const classes = `${base} ${variants[variant]} ${className}`
 

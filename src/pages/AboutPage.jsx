@@ -1,82 +1,69 @@
 import SectionHeading from '../components/ui/SectionHeading'
 import Card from '../components/ui/Card'
 
-const team = [
-  {
-    name: 'Mia Carter',
-    role: 'Founder & Head Roaster',
-    img: 'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=600',
-  },
-  {
-    name: 'Leo Nguyen',
-    role: 'Lead Barista',
-    img: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600',
-  },
-  {
-    name: 'Sara Lopez',
-    role: 'Pastry Chef',
-    img: 'https://images.pexels.com/photos/2566573/pexels-photo-2566573.jpeg?auto=compress&cs=tinysrgb&w=600',
-  },
+const values = [
+  { title: 'Quality First', desc: 'Every bean is hand-selected and roasted to bring out its very best character.' },
+  { title: 'Genuine Warmth', desc: 'We greet everyone like an old friend — because that is exactly how it should feel.' },
+  { title: 'Community Rooted', desc: 'Desxto is a gathering place built around the people who make our neighborhood special.' },
 ]
 
 export default function AboutPage() {
   return (
     <div>
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-16 grid gap-12 lg:grid-cols-2 items-center">
+      <section className="relative">
+        <img
+          src="https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="The Desxto Coffee team"
+          loading="lazy"
+          className="h-72 w-full object-cover md:h-96"
+        />
+        <div className="absolute inset-0 bg-espresso-dark/60" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="mx-auto w-full max-w-7xl px-4 md:px-8 lg:px-16">
+            <h1 className="text-4xl font-bold text-cream md:text-5xl">Our Story</h1>
+            <p className="mt-3 max-w-xl text-cream/90">A small dream that grew into a cozy corner of the city.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 md:px-8 lg:px-16 py-16 md:py-24">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
             <SectionHeading
-              eyebrow="Our Story"
-              title="Brewing Community Since 2014"
-              subtitle="Desxto Coffee began as a small corner cart with a big dream: to make exceptional coffee that brings people together."
+              eyebrow="Since the beginning"
+              title="Built on warmth and great coffee"
+              subtitle="Desxto Coffee began with a simple idea: create a space where great coffee and genuine hospitality come together."
             />
             <p className="mt-6 text-espresso-light">
-              What started with a single espresso machine has grown into a beloved neighborhood gathering place. We've
-              stayed true to our roots — sourcing thoughtfully, roasting carefully, and serving with genuine warmth.
+              What started as a single espresso machine and a passion for the perfect pour has grown into
+              a beloved neighborhood cafe. We believe coffee is more than a drink — it's a moment of
+              comfort, a reason to slow down, and an invitation to connect.
             </p>
             <p className="mt-4 text-espresso-light">
-              Every cup we pour carries our commitment to quality, sustainability, and the simple joy of a good
-              conversation over great coffee.
+              Today, our team continues to roast in small batches, bake fresh each morning, and welcome
+              every guest with the same warmth we started with.
             </p>
           </div>
           <img
-            src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200"
-            alt="Coffee shop counter"
+            src="https://images.pexels.com/photos/2566573/pexels-photo-2566573.jpeg?auto=compress&cs=tinysrgb&w=1200"
+            alt="Friends enjoying coffee together"
             loading="lazy"
-            className="rounded-2xl shadow-md w-full object-cover"
+            className="rounded-warm shadow-warm"
           />
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-cream-paper">
-        <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-16">
-          <SectionHeading center eyebrow="The People" title="Meet Our Team" subtitle="The friendly faces behind your favorite cup." />
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {team.map((m) => (
-              <Card key={m.name} className="overflow-hidden text-center">
-                <img src={m.img} alt={m.name} loading="lazy" className="h-56 w-full object-cover" />
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-espresso-dark">{m.name}</h3>
-                  <p className="mt-1 text-amber-dark">{m.role}</p>
-                </div>
+      <section className="bg-cream-paper">
+        <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-16 py-16 md:py-24">
+          <SectionHeading center eyebrow="What we stand for" title="Our core values" />
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+            {values.map((v) => (
+              <Card key={v.title} className="p-8 text-center">
+                <h3 className="text-xl font-semibold text-espresso">{v.title}</h3>
+                <p className="mt-3 text-sm text-espresso-light">{v.desc}</p>
               </Card>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-16 grid gap-8 md:grid-cols-3">
-          {[
-            { num: '10+', label: 'Years Brewing' },
-            { num: '50k+', label: 'Cups Served Monthly' },
-            { num: '4.9', label: 'Average Rating' },
-          ].map((s) => (
-            <div key={s.label} className="text-center">
-              <p className="text-4xl md:text-5xl font-bold text-amber-dark">{s.num}</p>
-              <p className="mt-2 text-espresso-light">{s.label}</p>
-            </div>
-          ))}
         </div>
       </section>
     </div>

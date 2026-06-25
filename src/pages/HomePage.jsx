@@ -2,116 +2,114 @@ import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import SectionHeading from '../components/ui/SectionHeading'
 
-const features = [
+const featured = [
   {
-    title: 'Single-Origin Beans',
-    desc: 'Sourced from family farms and roasted in small batches for a rich, balanced cup every time.',
+    name: 'Signature Espresso',
+    desc: 'Rich, velvety shots pulled from our house espresso blend with notes of dark chocolate.',
     img: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600',
-    alt: 'Cup of single-origin coffee',
   },
   {
-    title: 'Cozy Atmosphere',
-    desc: 'Warm wood, soft lighting, and comfy seating — the perfect spot to work, read, or catch up.',
+    name: 'Velvet Latte',
+    desc: 'Silky steamed milk poured over a double shot for a warm, comforting cup.',
     img: 'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600',
-    alt: 'Cozy coffee shop interior',
   },
   {
-    title: 'Fresh Pastries',
-    desc: 'Baked in-house daily to pair perfectly with your espresso, latte, or pour-over.',
+    name: 'Fresh Pastries',
+    desc: 'Baked in-house every morning — flaky croissants, muffins and warm cinnamon rolls.',
     img: 'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600',
-    alt: 'Fresh pastries on display',
   },
 ]
 
 export default function HomePage() {
   return (
     <div>
-      <section className="relative min-h-screen flex items-center">
+      <section className="relative flex min-h-screen items-center">
         <img
           src="https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt="Barista pouring latte art"
+          alt="Cozy coffee shop interior with warm lighting"
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-espresso-dark/70" />
-        <div className="relative mx-auto max-w-7xl px-4 md:px-8 lg:px-16 py-24 text-cream-paper">
-          <p className="text-sm font-semibold uppercase tracking-widest text-amber">Desxto Coffee</p>
-          <h1 className="mt-4 text-4xl md:text-6xl font-bold leading-tight max-w-3xl">
-            Warm, Cozy &amp; Freshly Brewed Every Single Day
-          </h1>
-          <p className="mt-6 text-lg text-cream max-w-xl">
-            Step into our neighborhood coffee shop where every cup is crafted with care, and every visit feels like home.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button to="/menu" variant="primary">Explore the Menu</Button>
-            <Button to="/contact" variant="outline" className="border-cream-paper text-cream-paper hover:bg-cream-paper hover:text-espresso-dark">
-              Visit Us
-            </Button>
+        <div className="relative mx-auto w-full max-w-7xl px-4 md:px-8 lg:px-16 py-24">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-amber-warm">
+              Warm &amp; Cozy Since Day One
+            </p>
+            <h1 className="mt-4 text-4xl font-bold leading-tight text-cream md:text-6xl">
+              Every cup feels like coming home
+            </h1>
+            <p className="mt-6 text-lg text-cream/90">
+              At Desxto Coffee we handcraft each drink with carefully sourced beans, slow roasted
+              for a smooth, comforting flavor. Pull up a chair and stay a while.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button to="/menu">Explore the Menu</Button>
+              <Button to="/about" variant="outline" className="border-cream text-cream hover:bg-cream hover:text-espresso">
+                Our Story
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-16">
-          <SectionHeading
-            center
-            eyebrow="Why Desxto"
-            title="Crafted with Care, Served with Warmth"
-            subtitle="From bean to cup, we obsess over the details so you can simply sit back and savor the moment."
-          />
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {features.map((f) => (
-              <Card key={f.title} className="overflow-hidden">
-                <img src={f.img} alt={f.alt} loading="lazy" className="h-48 w-full object-cover" />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-espresso-dark">{f.title}</h3>
-                  <p className="mt-2 text-espresso-light">{f.desc}</p>
-                </div>
-              </Card>
-            ))}
-          </div>
+      <section className="mx-auto max-w-7xl px-4 md:px-8 lg:px-16 py-16 md:py-24">
+        <SectionHeading
+          center
+          eyebrow="What we brew"
+          title="Crafted favorites you'll love"
+          subtitle="From bold espresso to buttery pastries, every item is made fresh and served with a smile."
+        />
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+          {featured.map((f) => (
+            <Card key={f.name} className="overflow-hidden">
+              <img src={f.img} alt={f.name} loading="lazy" className="h-52 w-full object-cover" />
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-espresso">{f.name}</h3>
+                <p className="mt-2 text-sm text-espresso-light">{f.desc}</p>
+              </div>
+            </Card>
+          ))}
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-cream-paper">
-        <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-16 grid gap-12 lg:grid-cols-2 items-center">
+      <section className="bg-cream-paper">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 md:px-8 lg:px-16 py-16 md:py-24 lg:grid-cols-2">
           <img
             src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=1200"
-            alt="Coffee being brewed"
+            alt="Barista pouring latte art"
             loading="lazy"
-            className="rounded-2xl shadow-md w-full object-cover"
+            className="rounded-warm shadow-warm"
           />
           <div>
             <SectionHeading
-              eyebrow="Our Promise"
-              title="A Better Cup Starts Here"
-              subtitle="We believe great coffee should be accessible, ethical, and unforgettable. That's the Desxto difference."
+              eyebrow="Our promise"
+              title="Beans with a story, brewed with care"
+              subtitle="We partner directly with small farms to bring you ethically sourced beans, then roast them in small batches to lock in flavor."
             />
-            <ul className="mt-6 space-y-3 text-espresso">
-              <li className="flex gap-3"><span className="text-amber-dark">&#10003;</span> Ethically sourced, fair-trade beans</li>
-              <li className="flex gap-3"><span className="text-amber-dark">&#10003;</span> Roasted fresh in small batches</li>
-              <li className="flex gap-3"><span className="text-amber-dark">&#10003;</span> Friendly baristas who know your order</li>
+            <ul className="mt-6 space-y-3 text-espresso-light">
+              <li className="flex items-start gap-3"><span className="text-amber-dark">●</span> Single-origin and signature house blends</li>
+              <li className="flex items-start gap-3"><span className="text-amber-dark">●</span> Roasted in small batches for freshness</li>
+              <li className="flex items-start gap-3"><span className="text-amber-dark">●</span> Warm, welcoming space to work or relax</li>
             </ul>
             <div className="mt-8">
-              <Button to="/about" variant="secondary">Our Story</Button>
+              <Button to="/about" variant="secondary">Learn More</Button>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-5xl px-4 md:px-8 lg:px-16">
-          <div className="rounded-3xl bg-espresso text-cream-paper px-8 py-12 md:px-16 md:py-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold">Your Cozy Corner Awaits</h2>
-            <p className="mt-4 text-cream max-w-xl mx-auto">
-              Drop by for a freshly brewed cup, a warm pastry, and a comfortable seat. We can't wait to welcome you.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Button to="/contact" variant="primary">Find Our Location</Button>
-              <Button to="/menu" variant="outline" className="border-cream-paper text-cream-paper hover:bg-cream-paper hover:text-espresso-dark">
-                See the Menu
-              </Button>
-            </div>
+      <section className="bg-espresso">
+        <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-16 py-16 md:py-24 text-center">
+          <h2 className="text-3xl font-bold text-cream md:text-4xl">Come visit Desxto Coffee today</h2>
+          <p className="mx-auto mt-4 max-w-xl text-cream/80">
+            Whether it's your morning ritual or an afternoon treat, we've saved a cozy seat just for you.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Button to="/contact">Find Us</Button>
+            <Button to="/menu" variant="outline" className="border-cream text-cream hover:bg-cream hover:text-espresso">
+              See Menu
+            </Button>
           </div>
         </div>
       </section>
