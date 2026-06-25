@@ -4,7 +4,7 @@ import Footer from './Footer'
 
 export default function AppShell() {
   return (
-    <div className="min-h-screen flex flex-col bg-cream">
+    <div className="flex min-h-screen flex-col bg-cream">
       <Navbar />
       <main className="flex-1 pt-16">
         <Outlet />
