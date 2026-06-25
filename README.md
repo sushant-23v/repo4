@@ -1,6 +1,6 @@
 # Desxto Coffee
 
-A warm & cozy coffee shop landing site built with React, React Router, Tailwind CSS, and Axios.
+A warm & cozy coffee shop landing site built with React, React Router, Tailwind CSS and Vite.
 
 ## Getting Started
 
@@ -20,11 +20,14 @@ npm run preview
 ## Tech Stack
 
 - React 18
-- React Router v6
-- Tailwind CSS
+- React Router DOM 6
+- Tailwind CSS 3
+- Vite 5
 - Axios
-- Vite
 
-## Brand
+## Palette
 
-**Desxto Coffee** — Where every cup feels like home. Warm espresso browns, soft cream, and amber highlights.
+- Espresso Brown `#4E342E`
+- Warm Amber `#FFB300`
+- Cream `#FAF3E0`
+- Paper `#FFF8E1`

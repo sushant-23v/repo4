@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 
 export default function Button({ children, to, href, variant = 'primary', className = '', ...props }) {
   const base =
-    'inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold transition-colors focus:outline-none'
+    'inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-semibold transition-colors focus:outline-none'
   const variants = {
     primary: 'bg-amber text-espresso-dark hover:bg-amber-dark',
     secondary: 'bg-espresso text-paper hover:bg-espresso-dark',
-    outline: 'border border-espresso/30 text-espresso hover:bg-paper',
+    outline: 'border border-espresso text-espresso hover:bg-espresso hover:text-paper',
   }
   const classes = `${base} ${variants[variant] || variants.primary} ${className}`
 
@@ -19,7 +19,7 @@ export default function Button({ children, to, href, variant = 'primary', classN
   }
   if (href) {
     return (
-      <a href={href} className={classes} target="_blank" rel="noopener noreferrer" {...props}>
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classes} {...props}>
         {children}
       </a>
     )

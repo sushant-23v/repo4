@@ -1,68 +1,60 @@
-import Button from '../components/ui/Button'
-import Card from '../components/ui/Card'
 import SectionHeading from '../components/ui/SectionHeading'
+import Card from '../components/ui/Card'
 
 const team = [
   {
-    name: 'Mara Quinn',
+    name: 'Maria Lopez',
     role: 'Head Barista',
+    img: 'https://images.pexels.com/photos/2566573/pexels-photo-2566573.jpeg?auto=compress&cs=tinysrgb&w=600',
+  },
+  {
+    name: 'James Carter',
+    role: 'Master Roaster',
     img: 'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
   {
-    name: 'Diego Santos',
-    role: 'Roast Master',
-    img: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600',
-  },
-  {
-    name: 'Aisha Bello',
+    name: 'Aisha Khan',
     role: 'Pastry Chef',
-    img: 'https://images.pexels.com/photos/2566573/pexels-photo-2566573.jpeg?auto=compress&cs=tinysrgb&w=600',
+    img: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=600',
   },
 ]
 
 export default function AboutPage() {
   return (
     <div>
-      <section className="mx-auto max-w-7xl px-4 md:px-8 lg:px-16 py-16 md:py-24">
-        <SectionHeading
-          eyebrow="Our Story"
-          title="Brewed with love since day one"
-          subtitle="Desxto Coffee started as a tiny corner cart with a big dream — to make the warmest coffee in town."
-        />
-        <div className="mt-12 grid gap-12 md:grid-cols-2 items-center">
-          <img
-            src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt="Coffee shop counter with beans and equipment"
-            loading="lazy"
-            className="rounded-2xl shadow-lg shadow-espresso/15 w-full object-cover"
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-16">
+          <SectionHeading
+            eyebrow="Our Story"
+            title="Brewed in Bean City Since 2015"
+            subtitle="Desxto Coffee began with a simple dream: a warm, welcoming space where great coffee and good company come together."
           />
-          <div className="space-y-4 text-espresso">
-            <p>
-              What began with a single hand-grinder and a passion for the perfect pour has grown into a
-              neighborhood favorite. We still roast in small batches and greet every regular by name.
-            </p>
-            <p>
-              Our espresso brown counters, warm amber light, and soft music are all designed to slow
-              the world down for a moment. Because coffee was never really about the rush.
-            </p>
-            <p>
-              Whether you're here for a quick cortado or an afternoon of work, you're always welcome at Desxto.
-            </p>
-            <Button to="/contact" variant="secondary">Come Say Hello</Button>
+          <div className="grid gap-12 md:grid-cols-2 items-center">
+            <img
+              src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Coffee shop counter"
+              loading="lazy"
+              className="rounded-2xl shadow-lg w-full object-cover"
+            />
+            <div className="space-y-4 text-espresso-light leading-relaxed text-lg">
+              <p>What started as a tiny corner roastery has grown into a beloved neighborhood gathering place. We still roast our beans in small batches, just like day one.</p>
+              <p>Every recipe, every blend, and every cozy corner is designed around one idea: making you feel right at home.</p>
+              <p>We partner directly with sustainable farms to bring you ethically sourced coffee that tastes as good as it feels.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-paper">
-        <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-16 py-16 md:py-24">
-          <SectionHeading center eyebrow="The Crew" title="Meet the people behind the counter" />
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+      <section className="py-16 md:py-24 bg-paper">
+        <div className="mx-auto max-w-7xl px-4 md:px-8 lg:px-16">
+          <SectionHeading eyebrow="The People" title="Meet Our Team" subtitle="The friendly faces behind every perfect cup." />
+          <div className="grid gap-8 md:grid-cols-3">
             {team.map((m) => (
-              <Card key={m.name} className="overflow-hidden text-center">
-                <img src={m.img} alt={m.name} loading="lazy" className="h-64 w-full object-cover" />
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-espresso-dark">{m.name}</h3>
-                  <p className="text-amber-dark">{m.role}</p>
+              <Card key={m.name}>
+                <img src={m.img} alt={m.name} loading="lazy" className="w-full h-64 object-cover" />
+                <div className="p-6 text-center">
+                  <h3 className="text-xl font-semibold text-espresso">{m.name}</h3>
+                  <p className="mt-1 text-amber-dark font-medium">{m.role}</p>
                 </div>
               </Card>
             ))}
